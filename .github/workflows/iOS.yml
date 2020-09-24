@@ -5,7 +5,7 @@ on: [push, pull_request]
 jobs:
   some-job:
     runs-on: macos-latest
-    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    if: "!contains(github.event.head_commit.message, '[skip ci]') && !contains(github.event.head_commit.message, 'node')"
 
     steps:
     - name: Checkout project
